@@ -1,0 +1,7 @@
+spring:
+    datasource:
+        platform: h2
+        url: jdbc:h2:mem:merve
+    h2:
+        console:
+            enabled: true
