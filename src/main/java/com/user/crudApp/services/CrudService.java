@@ -16,4 +16,9 @@ public class CrudService {
 	public  List<User> fetchUserList() {
 		return repo.findAll();
 	}
+	
+	public User saveUserToDB(User user) 
+	{
+		return repo.save(user);
+	}
 }
