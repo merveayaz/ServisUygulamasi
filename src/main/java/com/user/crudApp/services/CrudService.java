@@ -1,6 +1,7 @@
 package com.user.crudApp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +21,10 @@ public class CrudService {
 	public User saveUserToDB(User user) 
 	{
 		return repo.save(user);
+	}
+	
+	public Optional<User> fetchUserById(int id)
+	{
+		return repo.findById(id);
 	}
 }
