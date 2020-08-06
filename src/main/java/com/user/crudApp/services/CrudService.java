@@ -27,4 +27,18 @@ public class CrudService {
 	{
 		return repo.findById(id);
 	}
+	
+	public String deleteUserById(int id)
+	{
+		String result;
+		try {
+			repo.deleteById(id);
+			result = "User deleted succesfully";
+			
+		} catch (Exception e) {
+			result = "User with id is not deleted";
+			// TODO: handle exception
+		}
+		return result;
+	}
 }

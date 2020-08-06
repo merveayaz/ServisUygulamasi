@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,5 +41,12 @@ public class CrudRestController {
 		return service.fetchUserById(id).get();
 		//This will return our user
 	}
+	
+	@DeleteMapping("/deleteuserbyid/{id}")
+	public String DeleteUserById(@PathVariable int id)
+	{
+		return service.deleteUserById(id);
+	}
+	
 	
 }
