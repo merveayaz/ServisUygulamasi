@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ public class CrudRestController {
 	
 	
 	@GetMapping("/getuserlist")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public List<User> fetchUserList() {
 		List<User> users = new ArrayList<User>();
 		//Database'den veri getirme 
@@ -31,11 +33,13 @@ public class CrudRestController {
 	}
 	
 	@PostMapping("/adduser")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public User saveUser(@RequestBody User user) {
 		return service.saveUserToDB(user);
 	}
 	
 	@GetMapping("/getuserbyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public User fetchUserById(@PathVariable int id)
 	{
 		return service.fetchUserById(id).get();
@@ -43,6 +47,7 @@ public class CrudRestController {
 	}
 	
 	@DeleteMapping("/deleteuserbyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public String DeleteUserById(@PathVariable int id)
 	{
 		return service.deleteUserById(id);
